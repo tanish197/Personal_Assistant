@@ -90,8 +90,6 @@ if __name__ == "__main__":
             speak('opening'+ app)
             run(app)
             
-             
-        
         elif 'how are you' in query:
             speak("I'm fine. Thank you. What about you?") 
             
@@ -120,21 +118,15 @@ if __name__ == "__main__":
         elif 'find me a girlfriend' in query:
             speak("You better focus on your career")
             
-                
-            
         elif 'who is your boyfriend' in query:
             speak("I am in relationship with wifi. Hehehe")        
             
-       
         elif 'play some music' in query:
             music_dir = 'C:\\Users\\Tanish\\Desktop\\ASSISSTANT\\song'
             songs = os.listdir(music_dir)
             print(songs)    
             os.startfile(os.path.join(music_dir, songs[0]))
-            
-             
-          
-            
+           
         elif 'show me images of my best friend' in query:
             pic_dir = 'G:\Camera Roll\SANjana❣'
             bff = os.listdir(pic_dir)
@@ -144,8 +136,7 @@ if __name__ == "__main__":
         elif 'what is the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")    
             speak(f"Sir, the time is {strTime}")
-
-                
+     
         elif 'play' in query:
                 song = query.replace("play","")
                 speak('playing'+ song)
