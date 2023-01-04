@@ -108,7 +108,7 @@ if __name__ == "__main__":
             speak("Please suggest me one name")
             time.sleep(5)
             print and speak("still waiting...")
-            speak("I dnt like this name. Sorry!") 
+            speak("I dont like this name. Sorry!") 
             
         elif 'tell me about yourself' in query:
             speak("I was made by Tanish Jain in early january 2023") 
