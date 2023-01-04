@@ -7,7 +7,9 @@ import webbrowser
 import os
 import smtplib
 import time
-from AppOpener import run
+import subprocess
+# from AppOpener import run
+
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -84,17 +86,9 @@ if __name__ == "__main__":
 
         elif 'open instagram' in query:
             webbrowser.open("www.instagram.com")
-            
-        elif 'open' in query:
-            app = query.replace("open", "")
-            speak('opening'+ app)
-            run(app)
-            
+                
         elif 'how are you' in query:
             speak("I'm fine. Thank you. What about you?") 
-            
-        elif 'bye bye' in query:
-            speak("Okay bye")
             
         elif 'hello' in query:
             speak("hi there,  how can I help you")   
@@ -142,4 +136,6 @@ if __name__ == "__main__":
                 speak('playing'+ song)
                 pywhatkit.playonyt(song)        
                 
-        
+        elif 'bye bye' in query:
+            speak("Okay bye")
+            exit()
