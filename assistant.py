@@ -7,6 +7,7 @@ import webbrowser
 import os
 import smtplib
 import time
+from AppOpener import run
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -82,7 +83,14 @@ if __name__ == "__main__":
             webbrowser.open("www.google.com")
 
         elif 'open instagram' in query:
-            webbrowser.open("www.instagram.com")   
+            webbrowser.open("www.instagram.com")
+            
+        elif 'open' in query:
+            app = query.replace("open", "")
+            speak('opening'+ app)
+            run(app)
+            
+             
         
         elif 'how are you' in query:
             speak("I'm fine. Thank you. What about you?") 
