@@ -7,8 +7,7 @@ import webbrowser
 import os
 import smtplib
 import time
-import subprocess
-# from AppOpener import run
+from AppOpener import open
 
 
 engine = pyttsx3.init('sapi5')
@@ -71,9 +70,6 @@ if __name__ == "__main__":
             speak("According to Wikipedia")
             print(results)
             speak(results)
-
-        elif 'name of my bestie' in query:
-            speak("Sanjana uffffffff sanju is your best friend")
             
         elif 'what do you like' in query:
             speak("I like to spend time with you")    
@@ -120,12 +116,7 @@ if __name__ == "__main__":
             songs = os.listdir(music_dir)
             print(songs)    
             os.startfile(os.path.join(music_dir, songs[0]))
-           
-        elif 'show me images of my best friend' in query:
-            pic_dir = 'G:\Camera Roll\SANjana❣'
-            bff = os.listdir(pic_dir)
-            print(bff)    
-            os.startfile(os.path.join(pic_dir, bff[0]))    
+               
 
         elif 'what is the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")    
@@ -134,7 +125,14 @@ if __name__ == "__main__":
         elif 'play' in query:
                 song = query.replace("play","")
                 speak('playing'+ song)
-                pywhatkit.playonyt(song)        
+                pywhatkit.playonyt(song)  
+                
+                
+        elif 'open' in query:
+                app = query.replace("open","")
+                speak('opening'+ app)
+                open(app)    
+                  
                 
         elif 'bye bye' in query:
             speak("Okay bye")
