@@ -5,7 +5,6 @@ import datetime
 import wikipedia 
 import webbrowser
 import os
-import smtplib
 import time
 from AppOpener import open
 
@@ -54,6 +53,12 @@ def takeCommand():
         speak("Say that again please...")  
         return "None"
     return query
+
+def send_whatsapp_message(number, message):
+    pywhatkit.sendwhatmsg_instantly(f"+91{number}", message)
+    
+def take_user_input():
+    """Takes user input, recognizes it using Speech Recognition module and converts it into text"""    
 
 
 if __name__ == "__main__":
@@ -116,6 +121,15 @@ if __name__ == "__main__":
             songs = os.listdir(music_dir)
             print(songs)    
             os.startfile(os.path.join(music_dir, songs[0]))
+            
+        elif "send whatsapp message" in query:
+            speak(
+                'On what number should I send the message sir? Please enter in the console: ')
+            number = input("Enter the number: ")
+            speak("What is the message sir?")
+            message = input("Enter the message: ")
+            send_whatsapp_message(number, message)
+            speak("I've sent the message sir.")        
                
 
         elif 'what is the time' in query:
@@ -133,7 +147,11 @@ if __name__ == "__main__":
                 speak('opening'+ app)
                 open(app)    
                   
-                
+        
+
         elif 'bye bye' in query:
             speak("Okay bye")
             exit()
+            
+            
+        
